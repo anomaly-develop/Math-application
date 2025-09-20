@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rumus Rumuss Web</title>
+</head>
+<body>
+    <h1>RUMUS RUMUSS</h1>
+    <form method="post">
+        <label>Pilih perhitungan:</label>
+        <select name="menu" onchange="this.form.submit()">
+            <option value="">-- Pilih Menu --</option>
+            <option value="1">Bangun Ruang</option>
+            <!-- Tambahkan menu lain -->
+        </select>
+        <br><br>
+        {% if request.form.get('menu') == '1' %}
+            <label>Pilih Bangun Datar:</label>
+            <select name="sub_menu">
+                <option value="1">Persegi</option>
+                <!-- Tambahkan sub-menu lain -->
+            </select><br>
+            <label>Sisi:</label><input type="number" step="any" name="sisi"><br>
+        {% endif %}
+        <br>
+        <button type="submit">Hitung</button>
+    </form>
+    {% if result %}
+        <h2>Hasil:</h2>
+        <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
