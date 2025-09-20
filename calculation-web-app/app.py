@@ -5,9 +5,6 @@ from sympy import symbols, limit as sym_limit, diff, sympify
 
 app = Flask(__name__)
 
-# =========================
-# HALAMAN UTAMA
-# =========================
 @app.route("/")
 def main_menu():
     return render_template_string("""
@@ -26,9 +23,6 @@ def main_menu():
         </ul>
     """)
 
-# =========================
-# BANGUN DATAR
-# =========================
 @app.route("/bangun_datar", methods=["GET", "POST"])
 def bangun_datar():
     if request.method == "POST":
@@ -44,7 +38,6 @@ def bangun_datar():
             luas = p*l
             keliling = 2*(p+l)
             return f"Luas Persegi Panjang = {luas}, Keliling = {keliling}<br><a href='/bangun_datar'>Kembali</a>"
-        # Tambahkan semua bangun datar lain di sini
     return render_template_string("""
         <h2>Bangun Datar</h2>
         <form method='post'>
@@ -71,9 +64,6 @@ def bangun_datar():
         <a href='/'>Kembali ke Menu Utama</a>
     """)
 
-# =========================
-# BANGUN RUANG
-# =========================
 @app.route("/bangun_ruang", methods=["GET", "POST"])
 def bangun_ruang():
     if request.method == "POST":
@@ -112,9 +102,6 @@ def bangun_ruang():
         <a href='/'>Kembali ke Menu Utama</a>
     """)
 
-# =========================
-# FUNGSI MATEMATIKA
-# =========================
 @app.route("/fungsi", methods=["GET", "POST"])
 def fungsi():
     if request.method == "POST":
@@ -164,9 +151,6 @@ def fungsi():
         <a href='/'>Kembali</a>
     """)
 
-# =========================
-# Konversi Suhu
-# =========================
 @app.route("/suhu", methods=["GET", "POST"])
 def suhu():
     if request.method == "POST":
@@ -194,9 +178,6 @@ def suhu():
         <a href='/'>Kembali</a>
     """)
 
-# =========================
-# LOGARITMA
-# =========================
 @app.route("/logaritma", methods=["GET", "POST"])
 def logaritma():
     if request.method == "POST":
@@ -224,9 +205,6 @@ def logaritma():
         <a href='/'>Kembali</a>
     """)
 
-# =========================
-# INTEGRAL
-# =========================
 @app.route("/integral", methods=["GET", "POST"])
 def integral():
     if request.method == "POST":
@@ -258,9 +236,6 @@ def integral():
         <a href='/'>Kembali</a>
     """)
 
-# =========================
-# PERSAMAAN
-# =========================
 @app.route("/persamaan", methods=["GET", "POST"])
 def persamaan():
     if request.method == "POST":
@@ -298,9 +273,6 @@ def persamaan():
         <a href='/'>Kembali</a>
     """)
 
-# =========================
-# STATISTIKA
-# =========================
 @app.route("/statistika", methods=["GET", "POST"])
 def statistika():
     if request.method == "POST":
@@ -345,8 +317,6 @@ def statistika():
         </form>
         <a href='/'>Kembali</a>
     """)
-
-
 @app.route("/limit", methods=["GET", "POST"])
 def limit():
     if request.method == "POST":
